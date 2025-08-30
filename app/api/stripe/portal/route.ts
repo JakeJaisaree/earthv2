@@ -16,7 +16,7 @@ export async function POST() {
     // For now, we're faking the customer. You *must* replace "cus_123" with a real
     // Stripe customer ID (cus_xxx) once you store or retrieve it.
     const portal = await stripe.billingPortal.sessions.create({
-      customer: "cus_123", // <- replace with real Stripe customer id later
+      customer: "Jack Wild", // <- replace with real Stripe customer id later
       return_url: `${process.env.NEXT_PUBLIC_APP_URL}/account`,
     });
 
@@ -26,3 +26,4 @@ export async function POST() {
     return new Response(`Error: ${err.message}`, { status: 500 });
   }
 }
+
