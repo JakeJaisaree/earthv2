@@ -16,8 +16,7 @@ export async function POST(req: NextRequest) {
   const context = chunks.map((c, i) => `[#${i+1} ${c.source}] ${c.text}`).join("\n\n");
 
   const resp = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    temperature: 0.7,
+    model: "gpt-4",
     messages: [
       { role: "system", content: EARTH_V2_SYSTEM_PROMPT },
       { role: "system", content: `Context (embedded material). Cite bracket numbers when relevant:\n${context}` },
@@ -28,6 +27,7 @@ export async function POST(req: NextRequest) {
   const text = resp.choices[0]?.message?.content ?? "";
   return new Response(JSON.stringify({ text, refs: chunks.map((c,i)=>({ n:i+1, source:c.source })) }), { status: 200 });
 }
+
 
 
 
