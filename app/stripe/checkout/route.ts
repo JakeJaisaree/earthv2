@@ -2,7 +2,7 @@ import Stripe from "stripe";
 export const runtime = "nodejs";
 
 export async function POST() {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "latest" });
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: "2025-08-27.basil" });
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
     line_items: [{ price: process.env.STRIPE_PRICE_ID_PRO!, quantity: 1 }],
@@ -12,4 +12,5 @@ export async function POST() {
   });
   return Response.json({ url: session.url });
 }
+
 
