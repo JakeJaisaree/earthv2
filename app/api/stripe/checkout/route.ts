@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     }
 
     const url = process.env.NEXT_PUBLIC_APP_URL || new URL(req.url).origin;
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2024-06-20" });
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2025-08-27.basil" });
 
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
@@ -41,3 +41,4 @@ export async function POST(req: Request) {
     return new Response(err?.message ?? "Checkout failed", { status: 500 });
   }
 }
+
