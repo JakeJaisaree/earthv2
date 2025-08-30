@@ -1,8 +1,8 @@
 // app/api/chat/route.ts
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
-import { EARTH_V2_SYSTEM_PROMPT } from "/lib/prompt/earthv2";
-import { retrieve } from "/lib/rag/retrieve"; // your existing Astra retrieval helper
+import { EARTH_V2_SYSTEM_PROMPT } from "lib/prompt/earthv2";
+import { retrieve } from "lib/rag/retrieve"; // your existing Astra retrieval helper
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -36,4 +36,5 @@ ${contextBlock}`
   const text = resp.choices[0]?.message?.content ?? "";
   return new Response(JSON.stringify({ text }), { status: 200 });
 }
+
 
