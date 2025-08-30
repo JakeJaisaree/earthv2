@@ -35,7 +35,7 @@ export default function Upgrade() {
           textAlign: "center",
         }}
       >
-        <h1 style={{ fontSize: "1.8rem", marginBottom: "0.5rem" }}>Go Pro</h1>
+        <h1 style={{ fontSize: "1.8rem", marginBottom: "0.5rem" }}>Earth v2.0 Pro</h1>
         <p style={{ color: "#555", marginBottom: "1.5rem" }}>
           Unlock unlimited usage and premium features.
         </p>
@@ -88,6 +88,7 @@ export default function Upgrade() {
     </main>
   );
 }
+
 
 
 
