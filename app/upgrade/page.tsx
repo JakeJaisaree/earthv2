@@ -13,7 +13,6 @@ export default function Upgrade() {
     location.href = url;
   }
 
-export default function UpgradePage() {
   return (
     <main
       style={{
@@ -89,6 +88,7 @@ export default function UpgradePage() {
     </main>
   );
 }
+
 
 
 
