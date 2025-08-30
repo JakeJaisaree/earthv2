@@ -2,13 +2,13 @@
 
 export default function Upgrade() {
   async function goPro() {
-    const r = await fetch("api/stripe/checkout", { method: "POST" });
+    const r = await fetch("/api/stripe/checkout", { method: "POST" });
     const { url } = await r.json();
     location.href = url;
   }
 
   async function manage() {
-    const r = await fetch("api/stripe/portal", { method: "POST" });
+    const r = await fetch("/api/stripe/portal", { method: "POST" });
     const { url } = await r.json();
     location.href = url;
   }
@@ -26,6 +26,7 @@ export default function Upgrade() {
     </main>
   );
 }
+
 
 
 
