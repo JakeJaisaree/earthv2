@@ -12,7 +12,7 @@ export async function POST(req: Request) {
       return new Response("Missing STRIPE_SECRET_KEY", { status: 500 });
     }
     const url = process.env.NEXT_PUBLIC_APP_URL || new URL(req.url).origin;
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2024-06-20" });
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2025-08-27.basil" });
 
     const portal = await stripe.billingPortal.sessions.create({
       customer: customerId,
@@ -25,3 +25,4 @@ export async function POST(req: Request) {
     return new Response(err?.message ?? "Portal failed", { status: 500 });
   }
 }
+
