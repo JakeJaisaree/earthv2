@@ -1,8 +1,8 @@
 // app/api/chat/route.ts
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
-import { retrieve } from "/lib/rag/retrieve";
-import { EARTH_V2_SYSTEM_PROMPT } from "/lib/prompt/earthv2";
+import { retrieve } from "@/lib/rag/retrieve";
+import { EARTH_V2_SYSTEM_PROMPT } from "@/lib/prompt/earthv2";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
   const text = resp.choices[0]?.message?.content ?? "";
   return new Response(JSON.stringify({ text, refs: chunks.map((c,i)=>({ n:i+1, source:c.source })) }), { status: 200 });
 }
+
 
 
 
