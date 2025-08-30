@@ -4,9 +4,7 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: "2024-08-16",
-  });
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
@@ -20,3 +18,4 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ url: session.url });
 }
+
