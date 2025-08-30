@@ -1,8 +1,8 @@
-// lib/rag/retrieve.ts
 import fs from "fs/promises";
 import path from "path";
 import OpenAI from "openai";
 
+// Load the index file
 type IndexItem = { id: string; source: string; text: string; embedding: string };
 type IndexFile = { model: string; items: IndexItem[] };
 
